@@ -9,7 +9,6 @@ public class Cube : MonoBehaviour
 
     public Vector3 newPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         moveSpeed = 0.35f;
@@ -17,7 +16,6 @@ public class Cube : MonoBehaviour
         newPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleMovementInput();

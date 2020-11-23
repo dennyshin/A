@@ -11,9 +11,10 @@ public class Cube : MonoBehaviour
 
     void Start()
     {
+        newPosition = transform.position;
+
         moveSpeed = 0.35f;
         moveTime = 4.5f;
-        newPosition = transform.position;
     }
 
     void Update()

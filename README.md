@@ -8,9 +8,8 @@ Visual Studio Community 2019 Version 16.7.0
 Microsoft .NET Framework Version 4.8.03752
 
 
-
 ## Cube and Plane
-By default, Camera and Directional Lights are made
+By default, Main Camera and Directional Lights are already made
 
 In the Hierarchy:  
 right-click -> 3D Object -> Plane  
@@ -143,4 +142,33 @@ Vector3.Lerp(A, B, t) returns back a Vector3. Imagine a line going through A and
 In a practical setting, we can kiiiinda ignore Time.deltaTime and just trust that it works. Try removing Time.deltaTime and adjusting moveTime to see the effects. You can see we can sort of "cheat" and simulate momentum with small values of moveTime.
 
 
+## Camera Control in a Sim Game
+In the Hierarchy:  
+right-click -> Create Empty -> rename to "CameraRig"  
+Place Main Camera inside of CameraRig  
+Rotate Main Camera X=45, Y=0, Z=0
+
+In the Scene:
+Moving the "Blue Axis" of the Main Camera acts as a zoom in/out. Also notice how the Y and Z positions (under Tranform) move in opposite direction to one another.
+
+In "sim" games, you want the camera to move relative to the world, giving you the feeling of being outisde the world and looking down on it. So, instead of moving the Camera itself, we rig the camera to look at some point on the world, and move the rig instead. This means the CameraController script will be a component of the CameraRig.
+
+To copy the orthographic "feel" of games like Two Point Hospital, we can follow this [video](https://www.youtube.com/watch?v=rnqF6S7PfFA) again to recreate the effects. It gives an orthographic look but retains depth.  
+select Main Camera -> under Camera -> set Projection as Perspective  
+Lower the FOV to something small like 10 (this will "zoom in")  
+under Transform -> Zoom the camera out again by adjusting the Y and Z position (remember, they should be opposite direction)  
+select CameraRig -> under Transform -> set Rotation X=0, Y=45, Z=0
+
+This will make the cube no longer move the way we want if don't also modify our Cube script.
+
+
 ### Camera Controller Script
+To move the CameraRig, we can use the same script we used to control the cube. Except this time we can use the WASD keys instead. In most sim games, you want both the WASD and arrow keys to move the camera. We'll add this in later after changing the cube's movement to be controlled with the mouse.
+
+We can also add rotation and zoom, but I'll leave this as is for now.
+
+
+# Links
+[Building a Camera Controller for a Strategy Game](https://www.youtube.com/watch?v=rnqF6S7PfFA)
+
+[Unity - Simple Move a Cube with the Arrow Keys](https://www.youtube.com/watch?v=sXQI_0ILEW4)

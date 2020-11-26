@@ -9,7 +9,7 @@ There is currently an 'AngerBird' (angry birds clone) project that I have not up
 
 
 ## A
-This game was for me to get used to using the unity interface and C++ syntax.  
+This game was for me to get used to using the unity interface and C# syntax.  
 I managed to:  
 *  Get a cube moving using WASD keys
   * does NOT move in relation to the camera's POV. It instead moves relative to the world's axis (incorrect and unintended, can be fixed)
